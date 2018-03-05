@@ -1,6 +1,7 @@
 //Diclaration
 var express=require('express');
 var app=express();
+var index=require('./controllers/index');
 var login=require('./controllers/login');
 var emp=require('./controllers/emp');
 var reg=require('./controllers/reg');
@@ -19,7 +20,7 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(expressSession({secret: 'My secret',resave: false,saveUninitialized: true}));
 app.get('/',function(req,res){
-	res.redirect('/login');
+	res.redirect('/index');
 });
 // Static
 app.use(express.static(path.join(__dirname, './Asset')));
@@ -28,14 +29,14 @@ app.use(express.static(path.join(__dirname, './Asset')));
 
 app.all('*',function(req,res,next){
 
-	if(req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username')
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username')
 	{
 		next();
 		return;
 	}
 	if(req.session.loggedUser==null)
 	{
-		res.redirect('./login');
+		res.redirect('./index');
 	}
 	else
 	{
@@ -43,6 +44,7 @@ app.all('*',function(req,res,next){
 	}
 });
 //Route
+app.use('/index',index);
 app.use('/login',login);
 app.use('/emp',emp);
 app.use('/reg',reg);
