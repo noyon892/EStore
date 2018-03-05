@@ -12,6 +12,7 @@ var bodyParser=require('body-parser');
 var expressSession=require('express-session');
 var path = require('path');
 var port=1234;
+
 //COnfigure
 app.set('view engine','ejs');
 
