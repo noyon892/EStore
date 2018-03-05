@@ -1,6 +1,9 @@
 var express=require('express');
+var asyncValidator=require('async-validator');
 var router=express.Router();
 loginModel=require.main.require('./models/login-model');
+loginValidation=require.main.require('./Validation_rule/login_validation');
+
 // Request Handler
 
 router.get('/',function(req,res){
@@ -11,18 +14,29 @@ router.post('/',function(req,res){
 		username: req.body.username,
 		password: req.body.password
 	};
-	
-	loginModel.loginData(data,function(valid)
-	{
-		if(valid)
-		{
-			req.session.loggedUser=data;
-			res.redirect('./dashboard');
-		}
+	var validator=new asyncValidator(loginValidation.login);
+	validator.validate(data,function(errors,fields){
+		if(errors)
+			{
+				res.render('./login',{errors: errors});
+			}
+
 		else
 		{
-			res.redirect('./error/loginError');
+			loginModel.loginData(data,function(valid)
+			{
+				if(valid)
+				{
+					req.session.loggedUser=data;
+					res.redirect('./dashboard');
+				}
+				else
+				{
+					res.render('./login',{errorMessage:{message:'Invalid Username or Password.'}});
+				}
+			});		
 		}
+
 	});
 });
 

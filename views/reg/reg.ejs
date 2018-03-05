@@ -63,6 +63,14 @@
 			   </div>
 	  		</div>
 		</div>
+
+	<% if(typeof errors !== 'undefined'){ %>
+		<div class="alert alert-danger">
+		<% for(var i = 0; i < errors.length; i++){ %>
+			<p><%= errors[i].message %></p>
+		<% } %>
+		</div>
+	<% } %>
 	<!-- This design is created by manoj chauhan  -->
 	<hr>
 	<footer class="bg-dark text-white">

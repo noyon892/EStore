@@ -7,7 +7,7 @@ var loginData=function(data,callback)
 
 	var param=[data.username];
 	db.getData(sql,param,function(result){
-		console.log(result[0].password);
+		
 		if(result.length==0 || result==null)
 		{
 			callback(false);
