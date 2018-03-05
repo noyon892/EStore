@@ -1,0 +1,34 @@
+/*//Login Page*/
+
+#login { 
+  background: url(../images/bg1.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.panel-default {
+opacity: 0.9;
+margin-top:30px;
+}
+.form-group.last { margin-bottom:0px; }
+
+.font{
+	font-size: 1.5203125rem;
+}
+.full-panel{
+	margin-top: 80px;
+}
+/*Registration*/
+#reg{
+	background: url(../images/bg.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#emailalart,#useralart
+{
+	color: red;
+}
