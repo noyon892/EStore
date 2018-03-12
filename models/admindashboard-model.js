@@ -30,5 +30,22 @@ module.exports={
 				callback(true);
 			}
 		});
+	},
+
+	adminInsert: function(data,callback)
+	{
+		var sql="INSERT INTO `admin`(`name`, `username`, `email`, `password`, `gender`, `dob`, `nid`, `presentaddress`, `parmanentaddress`) VALUES (?,?,?,?,?,?,?,?,?)";
+		var param=[data.name,data.username,data.email,data.password,data.gender,data.dob,data.nid,data.presentaddress,data.parmanentaddress];
+
+		db.insertData(sql,param,function(result){
+			if(result==null || result.length==0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+		});
 	}
 };

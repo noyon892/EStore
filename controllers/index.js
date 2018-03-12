@@ -1,6 +1,6 @@
 var express=require('express');
 var router=express.Router();
-var dashboardModel=require.main.require('./models/dashboard-model');
+var dashboardModel=require.main.require('./models/admindashboard-model');
 
 // Request Handler
 
@@ -18,6 +18,5 @@ router.all('/',function(req,res){
 });
 
 //Exports
-
 module.exports=router;
 
