@@ -21,11 +21,11 @@ productValidation=require.main.require('./Validation_rule/product_validation');
 // });
 
 
-router.get('/addProduct',function(req,res){
+router.get('/admin',function(req,res){
 	res.render('./dashboard/admin-dashboard');
 });
 
-router.post('/addProduct',function(req,res){
+router.post('/admin',function(req,res){
 	var data={
 		productname: req.body.productname,
 		price: req.body.price,
