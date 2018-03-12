@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var usernameField = $("#username");
 	usernameField.on("change", function() {
 	var value = usernameField.val();
-		$.post("/checkUser/username", { value }, function(data, xhr) {
+		$.post("/checkuser/username", { value }, function(data, xhr) {
 			if(data) {
 				$("#submit").prop("disabled", true);
 				$('#useralart').removeClass("hidden");
@@ -20,7 +20,7 @@ $(document).ready(function() {
 	var emailField = $("#email");
 	emailField.on("change", function() {
 	var value = emailField.val();
-		$.post("/checkUser/email", { value }, function(data, xhr) {
+		$.post("/checkuser/email", { value }, function(data, xhr) {
 			if(data) {
 				$("#submit").prop("disabled", true);
 				$('#emailalart').removeClass("hidden");

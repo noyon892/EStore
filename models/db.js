@@ -13,12 +13,10 @@ module.exports={
 		{
 			connection.query(sql,function(error,result){
 				if (error) {
-					console.log(error);
 					callback(null);
 				}
 				else
 				{
-					console.log(result);
 					callback(result);
 				}
 			});
@@ -28,12 +26,10 @@ module.exports={
 		{
 			connection.query(sql,param,function(error,result){
 				if (error) {
-					console.log(error);
 					callback(null);
 				}
 				else
 				{
-					console.log(result);
 					callback(result);
 				}
 			});
@@ -58,12 +54,10 @@ module.exports={
 		{
 			connection.query(sql,function(error,result){
 				if (error) {
-					console.log(error);
 					callback(null);
 				}
 				else
 				{
-					console.log(result);
 					callback(result);
 				}
 			});
@@ -73,12 +67,10 @@ module.exports={
 		{
 			connection.query(sql,param,function(error,result){
 				if (error) {
-					console.log(error);
 					callback(null);
 				}
 				else
 				{
-					console.log(result);
 					callback(result);
 				}
 			});

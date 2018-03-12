@@ -46,13 +46,13 @@ router.post('/',function(req,res){
 					}
 					else
 					{
-						res.redirect('./error/regError');
+						res.redirect('./error/error');
 					}
 				});
 			}
 			else
 			{
-				res.redirect('./error/regError');
+				res.redirect('./error/error');
 			}
 		}
 	});

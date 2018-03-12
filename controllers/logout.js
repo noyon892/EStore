@@ -7,7 +7,7 @@ router.get('/',function(req,res){
 	 req.session.destroy(function(){
      // cannot access session here 
    });
-	 res.redirect('./login');
+	 res.redirect('./index');
 });
 
 //Exports
