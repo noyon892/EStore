@@ -20,23 +20,23 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(expressSession({secret: 'My secret',resave: false,saveUninitialized: true}));
 app.get('/',function(req,res){
-	res.redirect('/index');
+	res.redirect('/dashboard/admin');
 });
 // Static
 app.use(express.static(path.join(__dirname, './Asset')));
 
 
 
-app.all('*',function(req,res,next){
+app.all('*/*',function(req,res,next){
 
-	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username')
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username'|| req.url=='/dashboard/admin'|| req.url=='/dashboard/productlist')
 	{
 		next();
 		return;
 	}
 	if(req.session.loggedUser==null)
 	{
-		res.redirect('./index');
+		res.redirect('/index');
 	}
 	else
 	{

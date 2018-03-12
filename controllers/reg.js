@@ -36,31 +36,24 @@ router.post('/',function(req,res){
 		}
 		else
 		{
-			if(req.body.name!='' && req.body.username!='' && req.body.email!='' && req.body.password!='' && req.body.cpassword!='')
+			if(req.body.password==req.body.cpassword)
 			{
-				if(req.body.password==req.body.cpassword)
+				regModel.validateUser(data,function(valid)
 				{
-					regModel.validateUser(data,function(valid)
+					if(valid)
 					{
-						if(valid)
-						{
-							res.redirect('./login');
-						}
-						else
-						{
-							res.redirect('./error/regError');
-						}
-					});
-				}
-				else
-				{
-					res.redirect('./error/regError');
-				}
+						res.redirect('./login');
+					}
+					else
+					{
+						res.redirect('./error/regError');
+					}
+				});
 			}
 			else
-				{
-					res.redirect('./error/regError');
-				}
+			{
+				res.redirect('./error/regError');
+			}
 		}
 	});
 });

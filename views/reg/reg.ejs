@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Register</title>
 	<% include ../partials/head %>
 </head>
 <body id="reg">
@@ -15,6 +15,14 @@
 			<h1 class="text-center text-success font"><strong>Register page</strong></h1>
 			  <div class="tab-content">
 			    <div id="home" class="tab-pane fade in active">
+			    	
+			    	<% if(typeof errors !== 'undefined'){ %>
+			    		<div class="alert alert-danger">
+			    		<% for(var i = 0; i < errors.length; i++){ %>
+			    			<p><%= errors[i].message %></p>
+			    		<% } %>
+			    		</div>
+			    	<% } %>
 					<form method="post">
 					  <div class="form-group font">
 					    <label for="FullName" class="font">Full Name</label>
@@ -63,14 +71,6 @@
 			   </div>
 	  		</div>
 		</div>
-
-	<% if(typeof errors !== 'undefined'){ %>
-		<div class="alert alert-danger">
-		<% for(var i = 0; i < errors.length; i++){ %>
-			<p><%= errors[i].message %></p>
-		<% } %>
-		</div>
-	<% } %>
 	<!-- This design is created by manoj chauhan  -->
 	<hr>
 	<footer class="bg-dark text-white">
