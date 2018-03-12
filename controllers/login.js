@@ -28,7 +28,7 @@ router.post('/',function(req,res){
 				if(valid)
 				{
 					req.session.loggedUser=data;
-					res.redirect('./dashboard/admin');
+					res.redirect('./dashboard/addProduct');
 				}
 				else
 				{
