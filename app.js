@@ -20,7 +20,7 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(expressSession({secret: 'My secret',resave: false,saveUninitialized: true}));
 app.get('/',function(req,res){
-	res.redirect('/dashboard/admin');
+	res.redirect('/index');
 });
 // Static
 app.use(express.static(path.join(__dirname, './Asset')));
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, './Asset')));
 
 app.all('*/*',function(req,res,next){
 
-	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username'|| req.url=='/dashboard/addProduct'|| req.url=='/dashboard/productlist')
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username')
 	{
 		next();
 		return;

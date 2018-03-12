@@ -8,7 +8,6 @@ router.all('/',function(req,res){
 	 dashboardModel.productlist(function(result){
 	 	if(result && result!=null)
 	 		{
-	 			console.log({result: result});
 	 			res.render('./index/index',{result: result});
 	 		}
 	 	else
