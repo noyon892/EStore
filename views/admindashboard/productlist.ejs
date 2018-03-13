@@ -3,6 +3,23 @@
 <head>
 	<title>Login</title>
 	<% include ../partials/head %>
+	<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 </head>
 <body>
 
@@ -16,21 +33,28 @@
 			</button>
 		</a>
 	</div>
-	<h2>Hollo form list</h2>
-	<div id="wrap">
-		<div id="columns" class="columns_4">
-			<%for(var i=0;i<result.length;i++){%>
-			<figure>
-			  <img src="https://i.imgur.com/ruU04I6.jpg" alt='Hello Moni'>
-				<figcaption><%=result[i].productname%></figcaption>
-			    <span class="price">$<%=result[i].price%></span>
-			    <a class="button" href="#">Book Now</a>
-			</figure>
-			<%}%>
-			
-		</div>
-	</div>
-	
+	<h2>Product list</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Product Name</th>
+    <th>Price</th>
+    <th>Catagory</th>
+    <th>Quantity</th>
+    <th>Option</th>
+  </tr>
+  <%for(var i=0;i<result.length;i++){%>
+  <tr>
+    <td><%=result[i].id%></td>
+    <td><%=result[i].productname%></td>
+    <td><%=result[i].price%></td>
+    <td><%=result[i].catagory%></td>
+    <td><%=result[i].quantity%></td>
+    <td><a href="#">Edit</a><a href="/admindashboard">Delete</a></td>
+  </tr>
+  <%}%>
+  
+</table>
 	<hr>
 	<footer class="bg-dark text-white">
 	<% include ../partials/footer %>

@@ -71,6 +71,30 @@ router.all('/productlist',function(req,res){
 			}
 	});
 });
+router.post('/productlist',function(req,res){
+	dashboardModel.productdelete(function(result){
+		if(result && result!=null)
+			{
+				res.redirect('/admindashboard/productlist',{result: result});
+			}
+		else
+			{
+				res.redirect('/error/error');
+			}
+	});
+});
+router.all('/userlist',function(req,res){
+	dashboardModel.userlist(function(result){
+		if(result && result!=null)
+			{
+				res.render('./admindashboard/userlist',{result: result});
+			}
+		else
+			{
+				res.render('./error/error');
+			}
+	});
+});
 
 
 router.get('/addadmin',function(req,res){

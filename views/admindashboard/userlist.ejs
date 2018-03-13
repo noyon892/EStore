@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Login</title>
+  <% include ../partials/head %>
 <style>
 table {
     font-family: arial, sans-serif;
@@ -20,7 +22,16 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-
+<header>
+    <% include ../partials/adminHeader %>
+</header>
+<div class="panel panel-primary">
+    <a href="/logout">
+      <button class="btn-success btn pull-right">
+        Logout
+      </button>
+    </a>
+  </div>
 <h2>User list</h2>
 
 <table>
@@ -28,14 +39,16 @@ tr:nth-child(even) {
     <th>Id</th>
     <th>Name</th>
     <th>Email</th>
+    <th>Option</th>
   </tr>
+  <%for(var i=0;i<result.length;i++){%>
   <tr>
-    <%for(var i=0;i<result.length;i++){%>
     <td><%=result[i].id%></td>
     <td><%=result[i].name%></td>
-    <td><%=result[i].email></td>
-    <%}%>
+    <td><%=result[i].email%></td>
+    <td><a href="#">Block</a></td>
   </tr>
+  <%}%>
   
 </table>
 
