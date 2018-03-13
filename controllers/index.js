@@ -17,6 +17,24 @@ router.all('/',function(req,res){
 	 });
 });
 
+
+router.all('/productdetails/:id?',function(req,res){
+
+	var data={
+		id: req.params.id
+	};
+	 dashboardModel.productdetails(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/productdetails',{result: result});
+	 		}
+	 	else
+	 		{
+	 			res.render('./error/error');
+	 		}
+	 });
+});
+
 //Exports
 module.exports=router;
 

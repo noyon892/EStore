@@ -62,6 +62,22 @@ module.exports={
 			}
 		});
 	},
+
+	productdetils:function(data,callback) {
+		var sql='select * from product where id=?';
+		var param=[data.id];
+		db.getData(sql,param,function(result){
+			
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
 	userlist: function(callback)
 	{
 		var sql='SELECT id,name,email FROM user';
