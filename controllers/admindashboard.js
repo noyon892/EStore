@@ -71,18 +71,31 @@ router.all('/productlist',function(req,res){
 			}
 	});
 });
-router.post('/productlist',function(req,res){
-	dashboardModel.productdelete(function(result){
-		if(result && result!=null)
+router.get('/productdelete/:id?',function(req,res){
+	var data={
+		id: req.params.id	
+	};
+		{
+			res.render('./admindashboard/deleteproduct',data);
+		}
+});
+
+router.post('/productdelete/:id?',function(req,res){
+	var data={
+		id:req.body.id
+	};
+	dashboardModel.productdelete(data,function(valid){
+		if(valid)
 			{
-				res.redirect('/admindashboard/productlist',{result: result});
+				res.redirect('/admindashboard/productlist');
 			}
 		else
 			{
-				res.redirect('/error/error');
+				res.render('/error/error');
 			}
 	});
 });
+
 router.all('/userlist',function(req,res){
 	dashboardModel.userlist(function(result){
 		if(result && result!=null)

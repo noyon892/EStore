@@ -36,7 +36,19 @@ module.exports={
 		}
 
 	},
-	deleteData: function(sql,param,callback){
+	getAllData: function(sql,callback){
+		connection.query(sql,function(error,result){
+			if(error)
+			{
+				callback(null);
+			}
+			else
+			{
+				callback(result);
+			}
+		});
+	},
+	getData : function(sql,param,callback){
 
 		if(param==null)
 		{
@@ -65,19 +77,9 @@ module.exports={
 		}
 
 	},
-	getAllData: function(sql,callback){
-		connection.query(sql,function(error,result){
-			if(error)
-			{
-				callback(null);
-			}
-			else
-			{
-				callback(result);
-			}
-		});
-	},
-	getData : function(sql,param,callback){
+
+
+	deleteData : function(sql,param,callback){
 
 		if(param==null)
 		{

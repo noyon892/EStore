@@ -17,7 +17,7 @@ module.exports={
 		});
 	},
 	productdelete: function(data,callback){
-		var sql="DELETE FROM product WHERE id = ?";
+		var sql="DELETE FROM `product` WHERE id = ?";
 		var param=[data.id];
 
 		db.deleteData(sql,param,function(result){
