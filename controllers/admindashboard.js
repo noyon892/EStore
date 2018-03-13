@@ -79,7 +79,6 @@ router.get('/productdelete/:id?',function(req,res){
 			res.render('./admindashboard/deleteproduct',data);
 		}
 });
-
 router.post('/productdelete/:id?',function(req,res){
 	var data={
 		id:req.body.id
@@ -95,7 +94,38 @@ router.post('/productdelete/:id?',function(req,res){
 			}
 	});
 });
-
+router.get('/productedit/:id?',function(req,res){
+	var data={
+		id: req.params.id
+	};
+	dashboardModel.productedit(data,function(result){
+		res.render('./admindashboard/editproduct',{result:result});
+	});
+});
+router.post('/productedit/:id?',function(req,res){
+	var data={
+		id: req.params.id,
+		productname: req.body.productname,
+		price: req.body.price,
+		quantity: req.body.quantity,
+		catagory: req.body.catagory,
+		image1: req.body.image1,
+		image2: req.body.image2,
+		image3: req.body.image3,
+		details: req.body.details
+		
+	};
+	dashboardModel.productupdate(data,function(valid){
+		if(valid)
+			{
+				res.redirect('/admindashboard/productlist');
+			}
+		else
+			{
+				res.render('/error/error');
+			}
+	});
+});
 router.all('/userlist',function(req,res){
 	dashboardModel.userlist(function(result){
 		if(result && result!=null)

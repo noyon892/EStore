@@ -107,5 +107,31 @@ module.exports={
 			});
 		}
 
+	},
+	updateData : function(sql,param,callback){
+		if(param==null)
+		{
+			connection.query(sql,function(error,result){
+				if (error) {
+					callback(null);
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+		}
+		else
+		{
+			connection.query(sql,param,function(error,result){
+				if (error) {
+					callback(null);
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+		}
 	}
 };

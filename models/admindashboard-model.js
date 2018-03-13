@@ -62,6 +62,37 @@ module.exports={
 			}
 		});
 	},
+	productupdate: function(data,callback){
+		var sql="UPDATE `product` SET `productname`=?,`price`=?,`quantity`=?,`catagory`=?,`image1`=?,`image2`=?,`image3`=?,`details`=? WHERE `id`=?";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.image1,data.image2,data.image3,data.details,data.id];
+
+		db.updateData(sql,param,function(result){
+			if(result==null || result.length==0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+		});
+	},
+	productedit: function(data,callback)
+	{
+		var sql='SELECT productname,price,catagory,quantity,details FROM product WHERE id=?';
+		var param = [data.id];
+
+		db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);
+			}
+		});
+	},
 	userlist: function(callback)
 	{
 		var sql='SELECT id,name,email FROM user';
