@@ -26,7 +26,7 @@ tr:nth-child(even) {
 	<header>
 		<% include ../partials/header %>
 	</header>
-<table>
+<table class="text-center">
 
 <%if(typeof result!=='undefined'){%>
     
@@ -37,18 +37,21 @@ tr:nth-child(even) {
       <th>Price</th>
       <th>Catagory</th>
       <th>Quantity</th>
-      <th>Option</th>
     </tr>
     <%for(var i=0;i<result.length;i++){%>
     <tr>
-      <td> <a href="/admindashboard/productdelete/<%=result[i].id%>"><i class="glyphicon glyphicon-remove"></i></a></td>
+      <td> <a href="/index/removecart/<%=result[i].id%>"><i class="glyphicon glyphicon-remove"></i></a></td>
       <td><%=result[i].productname%></td>
       <td><%=result[i].price%></td>
       <td><%=result[i].catagory%></td>
       <td><%=result[i].quantity%></td>
-      <td><a href="/admindashboard/productedit/<%=result[i].id%>">continue Shopping</a></td>
     </tr>
     <%}%>  
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="/index">continue Shopping</a></td>
   <%}
   else{%>
   <h2 class="text-center">Empty Cart</h2>
