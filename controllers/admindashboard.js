@@ -37,7 +37,7 @@ router.post('/addproduct',function(req,res){
 		image2: req.body.image2,
 		image3: req.body.image3,
 		details: req.body.details,
-		date: date.format(new Date(), 'YYYY/MM/DD');
+		date: date.format(new Date(), 'YYYY/MM/DD')
 	};
 	var validator=new asyncValidator(productValidation.product);
 	validator.validate(data,function(errors,fields){

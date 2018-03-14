@@ -1,18 +1,32 @@
 var db=require('./db');
 
 module.exports={
-	productdetails: function(callback)
-	{
-		var sql='select * from emp';
-
-		db.getAllData(sql,function(result){
+	
+	productdetails: function(data,callback) {
+		var sql='select * from product where id=?';
+		var param=[data.id];
+			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
 			{
 				callback(false);
 			}
 			else
 			{
-				callback(result);
+				callback(result);	
+			}
+		});
+	},
+	addtocart: function(data,callback) {
+		var sql='select * from product where id=?';
+		var param=[data.id];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
 			}
 		});
 	}
