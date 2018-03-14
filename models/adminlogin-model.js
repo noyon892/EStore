@@ -3,7 +3,7 @@ var passwordHash = require.main.require('password-hash/lib/password-hash');
 
 var loginData=function(data,callback)
 {
-	var sql='select * from user where username=?';
+	var sql='select * from admin where username=?';
 
 	var param=[data.username];
 	db.getData(sql,param,function(result){
@@ -15,7 +15,7 @@ var loginData=function(data,callback)
 		else
 		{
 			if(passwordHash.verify(data.password,result[0].password))
-			{				
+			{
 				callback(result);	
 			}
 			else

@@ -13,7 +13,13 @@
   -o-background-size: cover;
   background-size: cover;
 }
-
+#adminlogin { 
+  background: url(../images/bg1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .panel-default {
 opacity: 0.9;
 margin-top:30px;

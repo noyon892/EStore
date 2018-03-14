@@ -18,6 +18,20 @@ router.post('/email',function(req,res){
 		res.send(valid);
 	});
 });
+router.post('/adminusername',function(req,res){
+	var data={ username: req.body.value };
+	checkmodel.getUser(data,function(valid)
+	{
+		res.send(valid);
+	});
+});
+router.post('/adminemail',function(req,res){
+	var data={ email: req.body.value };
+	checkmodel.getUser(data,function(valid)
+	{
+		res.send(valid);
+	});
+});
 
 //Exports
 
