@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, './Asset')));
 
 app.all('*/*',function(req,res,next){
 
-	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username')
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username'|| req.url=='/index/productdetails/*')
 	{
 		next();
 		return;

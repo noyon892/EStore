@@ -11,6 +11,7 @@
   "dependencies": {
     "async-validator": "^1.8.2",
     "body-parser": "^1.18.2",
+    "date-and-time": "^0.6.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
