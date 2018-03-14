@@ -1,4 +1,5 @@
 var db=require('./db');
+var passwordHash=require('password-hash');
 
 module.exports={
 	productInsert: function(data,callback){
@@ -34,7 +35,7 @@ module.exports={
 	adminInsert: function(data,callback)
 	{
 		var sql="INSERT INTO `admin`(`name`, `username`, `email`, `password`, `gender`, `dob`, `nid`, `presentaddress`, `parmanentaddress`) VALUES (?,?,?,?,?,?,?,?,?)";
-		var param=[data.name,data.username,data.email,data.password,data.gender,data.dob,data.nid,data.presentaddress,data.parmanentaddress];
+		var param=[data.name,data.username,data.email,passwordHash.generate(data.password),data.gender,data.dob,data.nid,data.presentaddress,data.parmanentaddress];
 
 		db.insertData(sql,param,function(result){
 			if(result==null || result.length==0)
@@ -79,7 +80,7 @@ module.exports={
 	},
 	productedit: function(data,callback)
 	{
-		var sql='SELECT productname,price,catagory,quantity,details FROM product WHERE id=?';
+		var sql='SELECT * FROM product WHERE id=?';
 		var param = [data.id];
 
 		db.getData(sql,param,function(result){
@@ -93,7 +94,6 @@ module.exports={
 			}
 		});
 	},
-
 	productdetails: function(data,callback) {
 		var sql='select * from product where id=?';
 		var param=[data.id];

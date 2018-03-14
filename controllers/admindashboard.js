@@ -115,7 +115,6 @@ router.post('/productedit/:id?',function(req,res){
 		image2: req.body.image2,
 		image3: req.body.image3,
 		details: req.body.details
-		
 	};
 	dashboardModel.productupdate(data,function(valid){
 		if(valid)
@@ -166,6 +165,8 @@ router.post('/addadmin',function(req,res){
 		}
 		else
 		{
+			if(req.body.password == req.body.cpassword)
+			{
 			dashboardModel.adminInsert(data,function(valid){
 				if(valid)
 				{
@@ -176,6 +177,11 @@ router.post('/addadmin',function(req,res){
 					res.redirect('/error/error');
 				}
 			});
+		}
+		else
+		{
+			res.render('/admindashboard/addadmin',{errors:errors});
+		}
 		}
 	});
 

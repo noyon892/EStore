@@ -5,6 +5,7 @@ var index=require('./controllers/index');
 var login=require('./controllers/login');
 var emp=require('./controllers/emp');
 var reg=require('./controllers/reg');
+var adminlogin=require('./controllers/adminlogin');
 var admindashboard=require('./controllers/admindashboard');
 var error=require('./controllers/error');
 var logout=require('./controllers/logout');
@@ -28,8 +29,8 @@ app.use(express.static(path.join(__dirname, './Asset')));
 
 
 app.all('*/*',function(req,res,next){
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/adminlogin' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username' || req.url=='/checkUser/adminemail' || req.url=='/checkUser/adminusername')
 
-	if(req.url=='/index' ||req.url=='/login' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username'|| req.url=='/index/productdetails/*')
 	{
 		next();
 		return;
@@ -48,6 +49,7 @@ app.use('/index',index);
 app.use('/login',login);
 app.use('/emp',emp);
 app.use('/reg',reg);
+app.use('/adminlogin',adminlogin);
 app.use('/admindashboard',admindashboard);
 app.use('/error',error);
 app.use('/logout',logout);
