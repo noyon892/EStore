@@ -109,5 +109,19 @@ module.exports={
 				callback(result);
 			}
 		});
+	},
+	searchuser: function(data,callback) {
+		var sql='SELECT * FROM user WHERE name=?';
+		var param=[data.username];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
 	}
 };

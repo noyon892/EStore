@@ -140,7 +140,21 @@ router.all('/userlist',function(req,res){
 	});
 });
 
-
+router.post('/search',function(req,res){
+	var data={
+		username: req.body.search
+	};
+	 dashboardModel.searchuser(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./admindashboard/userlist',{result: result});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./error/error');
+	 		}
+	 });
+});
 router.get('/addadmin',function(req,res){
 	res.render('./admindashboard/addadmin');
 });
