@@ -4,6 +4,7 @@ var router=express.Router();
 var dashboardModel=require.main.require('./models/admindashboard-model');
 productValidation=require.main.require('./Validation_rule/product_validation');
 registrationValidation=require.main.require('./Validation_rule/registration_validation');
+var date = require('date-and-time');
 // Request Handler
 
 // router.get('/user',function(req,res){
@@ -35,7 +36,8 @@ router.post('/addproduct',function(req,res){
 		image1: req.body.image1,
 		image2: req.body.image2,
 		image3: req.body.image3,
-		details: req.body.details
+		details: req.body.details,
+		date: date.format(new Date(), 'YYYY/MM/DD')
 	};
 	var validator=new asyncValidator(productValidation.product);
 	validator.validate(data,function(errors,fields){

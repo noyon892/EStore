@@ -4,12 +4,12 @@
 	<title>Login</title>
 	<% include ../partials/head %>
 </head>
-<body>
+<body id="details">
 
 	<header>
 		<% include ../partials/header %>
 	</header>	
-	<div class="container">
+<!-- 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
 				<div class="wrapper row">
@@ -42,7 +42,7 @@
 								<span class="color blue"></span>
 							</h5>
 							<div class="action">
-								<button class="add-to-cart btn btn-default" type="button">add to cart</button>
+								<a class="button" href="/index/addtocart/<%=result[i].id%>">Add to Cart</a>
 								<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
 							</div>
 						</div>
@@ -51,6 +51,86 @@
 			</div>
 		</div>
 	</div>
+ -->
+
+
+
+
+
+
+
+
+
+	<div id="containerdetails">	
+		<%for(var i=0;i<result.length;i++){%>
+		<!-- Start	Product details -->
+		<div class="product-details">
+			<!-- 	Product Name -->
+			<h1><%=result[i].productname%></h1>
+			<!-- 		<span class="hint new">New</span> -->
+			<!-- 		<span class="hint free-shipping">Free Shipping</span> -->
+			<!-- 		the Product rating -->
+			<span class="hint-star star">
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
+				<i class="fa fa-star-half-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</span>	
+
+			<form method="post"  action="/cart/addtocart/<%=result[i].id%>">
+				
+				<div class="form-group">
+				    <label for="quantity" class="col-sm-3 control-label font">
+				        Quantity: </label>
+				    <div class="col-sm-8 col-sm-offset-1">
+				        <input type="text" class="form-control font" id="quantity" value="1" name="quantity">
+				    </div>
+
+				    <!-- 		Control -->
+				    <div class="control">
+				    	<!-- Start Button buying -->
+				    	<button class="btndetails button" type="submit">
+				    		<!-- 		the Price -->
+				    		<span class="price">BDT <%=result[i].price%></span>
+				    		<!-- 		shopping cart icon-->
+				    		<span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+				    		<!-- 		Buy Now / ADD to Cart-->
+				    		<span class="buy">Add to Cart</span>
+				    	</button>
+				    		<!-- End Button buying -->
+				    </div>
+				</div>
+			</form>		
+		</div>
+				
+			<!-- 	End	Product details   -->
+				
+				
+				
+			<!-- 	Start product image & Information -->
+				
+			<div class="product-image">
+				
+				<img src="https://sc01.alicdn.com/kf/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3/200006212/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3.jpg" alt="Omar Dsoky">
+					
+				<!-- 	product Information-->
+				<div class="info">
+					<h2>The Description</h2>
+					<ul>
+						<li><strong>Details: </strong><%=result[i].details%></li>
+						<li><strong>Catagory: </strong><%=result[i].catagory%></li>
+						<li><strong>Available Prouct: </strong><%=result[i].quantity%></li>
+					</ul>
+				</div>
+			</div>
+			<!--  End product image  -->
+	</div>
+<%}%>
+
+
+
+
 
 	<hr>
 	<footer class="bg-dark text-white">

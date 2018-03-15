@@ -1,5 +1,6 @@
 var express=require('express');
 var router=express.Router();
+var index=require.main.require('./models/index');
 var dashboardModel=require.main.require('./models/admindashboard-model');
 
 // Request Handler
@@ -23,7 +24,7 @@ router.all('/productdetails/:id?',function(req,res){
 	var data={
 		id: req.params.id
 	};
-	 dashboardModel.productdetails(data,function(result){
+	 index.productdetails(data,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			res.render('./index/productdetails',{result: result});

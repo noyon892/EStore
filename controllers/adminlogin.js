@@ -7,7 +7,7 @@ loginValidation=require.main.require('./Validation_rule/login_validation');
 // Request Handler
 
 router.get('/',function(req,res){
-	res.render('./admindashboard/adminlogin');
+	res.render('./adminlogin/adminlogin');
 });
 router.post('/',function(req,res){
 	var data={
@@ -18,7 +18,7 @@ router.post('/',function(req,res){
 	validator.validate(data,function(errors,fields){
 		if(errors)
 			{
-				res.render('./admindashboard/adminlogin',{errors: errors});
+				res.render('./adminlogin/adminlogin',{errors: errors});
 			}
 
 		else
@@ -32,7 +32,7 @@ router.post('/',function(req,res){
 				}
 				else
 				{
-					res.render('./admindashboard/adminlogin',{errorMessage:{message:'Invalid Admin Username or Password.'}});
+					res.render('./adminlogin/adminlogin',{errorMessage:{message:'Invalid Admin Username or Password.'}});
 				}
 			});		
 		}

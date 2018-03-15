@@ -9,7 +9,6 @@
 	<header>
 		<% include ../partials/header %>
 	</header>
-	<h2>Hollo form list</h2>
 	<div id="wrap">
 		<div id="columns" class="columns_4">
 			<%for(var i=0;i<result.length;i++){%>
@@ -19,9 +18,13 @@
 					<figcaption><%=result[i].productname%></figcaption>
 				    <span class="price">$<%=result[i].price%></span>
 				    <div class="row">
-				    	<div class="col-md-6 no-pad">
-				    		<a class="button" href="#">Add to Cart</a>
-				    	</div>
+
+				    	<form method="post" action="/cart/addtocart/<%=result[i].id%>">
+				    		<div class="col-md-6 no-pad">
+				    			<input type="hidden" name="quantity" id="quantity" value="1">
+				    			<button class="button buttondetails" type="submit">Add to Cart</button> 
+				    		</div>
+				    	</form>
 				    	<div class="col-md-6 no-pad">
 				    		<a class="button" href="#">Buy Now</a>
 				    	</div>

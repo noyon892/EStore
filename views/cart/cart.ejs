@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<% include ../partials/head %>
+	<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+<!-- <table class="text-center">
+
+<%if(typeof result!=='undefined'){%>
+    
+    <h2>Product list</h2>
+    <tr>
+      <th></th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Catagory</th>
+      <th>Quantity</th>
+    </tr>
+    <%for(var i=0;i<result.length;i++){%>
+    <tr>
+      <td> <a href="/cart/removecart/<%=result[i].id%>"><i class="glyphicon glyphicon-remove"></i></a></td>
+      <td><%=result[i].productname%></td>
+      <td><%=result[i].price%></td>
+      <td><%=result[i].catagory%></td>
+      <td><%=result[i].quantity%></td>
+    </tr>
+    <%}%>  
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="/login">Checkout</a></td>
+    <td><a href="/index">continue Shopping</a></td>
+  <%}
+  else{%>
+  <h2 class="text-center">Empty Cart</h2>
+<%}%>
+
+  
+</table> -->
+
+
+
+
+  <h1>Shopping Cart</h1><hr>
+  <table class="table table-striped table-hover table-bordered">
+
+    <%if(typeof result!=='undefined'){%>
+        
+        <tbody>
+            <tr>
+                <th>Item</th>
+                <th>QTY</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+            </tr>
+            <tr>
+              <%var subtotal=0%>
+                <%for(var i=0;i<result.length;i++){%>
+                <tr>
+                  <td> <a href="/cart/removecart/<%=result[i].id%>"><i class="glyphicon glyphicon-remove"></i></a> || <%=result[i].productname%></td>              
+                  <td><%=result[i].quantity%></td>
+                  <td>BDT <%=result[i].price%></td>
+                  <td>BDT <%=result[i].quantity*result[i].price%> </td>
+
+                </tr>
+                <%subtotal+=result[i].quantity*result[i].price%>
+                <%}%> 
+            </tr>
+            <tr>
+                <th colspan="3"><span class="pull-right">Sub Total</span></th>
+                <th>BDT <%=subtotal%></th>
+            </tr>
+            <tr>
+              <%var vat=(subtotal*2)/100%>
+                <th colspan="3"><span class="pull-right">VAT 2%</span></th>
+                <th>BDT <%=vat%></th>
+            </tr>
+            <tr>
+              <%var total=subtotal+vat%>
+                <th colspan="3"><span class="pull-right">Total</span></th>
+                <th>BDT <%=total%></th>
+            </tr>
+            <tr>
+                <td><a href="/index" class="btn btn-primary">Continue Shopping</a></td>
+                <td colspan="3"><a href="#" class="pull-right btn btn-success">Checkout</a></td>
+            </tr>
+        </tbody>
+          <%}
+          else{%>
+          <h2 class="text-center">Empty Cart</h2>
+        <%}%>
+    </table>          
+	<hr>
+	<footer class="bg-dark text-white">
+	<% include ../partials/footer %>
+	</footer>
+</body>	
+</html>
