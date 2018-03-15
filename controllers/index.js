@@ -20,7 +20,6 @@ router.all('/',function(req,res){
 
 
 router.all('/productdetails/:id?',function(req,res){
-
 	var data={
 		id: req.params.id
 	};

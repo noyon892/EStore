@@ -16,7 +16,7 @@ $(document).ready(function() {
 			}
 		})
 	});
-//Email validation
+//Admin Username validation
 	var emailField = $("#email");
 	emailField.on("change", function() {
 	var value = emailField.val();
@@ -32,7 +32,8 @@ $(document).ready(function() {
 			}
 		})
 	});
-	var usernameField = $("#username");
+
+	var usernameField = $("#adminusername");
 	usernameField.on("change", function() {
 	var value = usernameField.val();
 		$.post("/checkuser/adminusername", { value }, function(data, xhr) {
@@ -46,8 +47,8 @@ $(document).ready(function() {
 			}
 		})
 	});
-//Email validation
-	var emailField = $("#email");
+//Admin Email validation
+	var emailField = $("#adminemail");
 	emailField.on("change", function() {
 	var value = emailField.val();
 		$.post("/checkuser/adminemail", { value }, function(data, xhr) {

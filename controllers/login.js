@@ -27,8 +27,8 @@ router.post('/',function(req,res){
 			{
 				if(valid)
 				{
-					req.session.loggedUser=data;
-					res.redirect('./admindashboard/addProduct');
+					req.session.loggedUser=data.username;
+					res.redirect('/index');
 				}
 				else
 				{

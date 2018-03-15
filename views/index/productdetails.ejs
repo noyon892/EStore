@@ -77,20 +77,25 @@
 				<i class="fa fa-star-half-o" aria-hidden="true"></i>
 				<i class="fa fa-star-o" aria-hidden="true"></i>
 			</span>	
-
+			<% if(typeof errorMessage !== 'undefined'){ %>
+				<div class="panel panel-warning">
+					<p class="text-center text-danger"><%= errorMessage.message %></p>
+				</div>
+			<% } %>
 			<form method="post"  action="/cart/addtocart/<%=result[i].id%>">
 				
 				<div class="form-group">
 				    <label for="quantity" class="col-sm-3 control-label font">
 				        Quantity: </label>
 				    <div class="col-sm-8 col-sm-offset-1">
+				        <input type="hidden" id="proid" value="<%=result[i].id%>" name="id">
 				        <input type="text" class="form-control font" id="quantity" value="1" name="quantity">
 				    </div>
 
 				    <!-- 		Control -->
 				    <div class="control">
 				    	<!-- Start Button buying -->
-				    	<button class="btndetails button" type="submit">
+				    	<button class="btndetails button" type="submit" id='addtocart'>
 				    		<!-- 		the Price -->
 				    		<span class="price">BDT <%=result[i].price%></span>
 				    		<!-- 		shopping cart icon-->

@@ -11,8 +11,10 @@ var admindashboard=require('./controllers/admindashboard');
 var error=require('./controllers/error');
 var logout=require('./controllers/logout');
 var checkUser=require('./controllers/checkUser');
+var checkout=require('./controllers/checkout');
 var bodyParser=require('body-parser');
 var expressSession=require('express-session');
+var alertnode=require('alert-node');
 var path = require('path');
 var port=1234;
 //COnfigure
@@ -56,6 +58,7 @@ app.use('/admindashboard',admindashboard);
 app.use('/error',error);
 app.use('/logout',logout);
 app.use('/checkUser',checkUser);
+app.use('/checkout',checkout);
 //Server setup
 app.listen(port,function(){
 	console.log('Started port '+port);
