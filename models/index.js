@@ -29,5 +29,19 @@ module.exports={
 				callback(result);	
 			}
 		});
-	}
+	},
+	searchproduct: function(data,callback) {
+		var sql='SELECT * FROM product WHERE catagory=?';
+		var param=[data.catagory];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
 };

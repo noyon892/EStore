@@ -19,7 +19,6 @@ router.all('/',function(req,res){
 
 
 router.all('/productdetails/:id?',function(req,res){
-
 	var data={
 		id: req.params.id
 	};
@@ -34,11 +33,12 @@ router.all('/productdetails/:id?',function(req,res){
 	 		}
 	 });
 });
-router.post('/:catagory?',function(req,res){
+
+router.post('/search',function(req,res){
 	var data={
-		catagory: req.body.catagory
+		catagory: req.body.search
 	};
-	 dashboardModel.searchproduct(data,function(result){
+	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			res.render('./index/index',{result: result});

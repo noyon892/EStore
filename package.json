@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "alert-node": "^1.1.2",
     "async-validator": "^1.8.2",
     "body-parser": "^1.18.2",
     "date-and-time": "^0.6.2",

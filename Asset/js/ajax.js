@@ -33,8 +33,7 @@ $(document).ready(function() {
 		})
 	});
 
-//user validation for admin
-	var usernameField = $("#username");
+	var usernameField = $("#adminusername");
 	usernameField.on("change", function() {
 	var value = usernameField.val();
 		$.post("/checkuser/adminusername", { value }, function(data, xhr) {
@@ -48,8 +47,8 @@ $(document).ready(function() {
 			}
 		})
 	});
-//Email validation for admin
-	var emailField = $("#email");
+//Admin Email validation
+	var emailField = $("#adminemail");
 	emailField.on("change", function() {
 	var value = emailField.val();
 		$.post("/checkuser/adminemail", { value }, function(data, xhr) {
