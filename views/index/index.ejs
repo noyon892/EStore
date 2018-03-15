@@ -9,21 +9,33 @@
 	<header>
 		<% include ../partials/header %>
 	</header>
-	<div id="wrap">
-		<div id="columns" class="columns_4">
-			<%for(var i=0;i<result.length;i++){%>
-			<a href="/index/productdetails/<%=result[i].id%>">
-				<figure>
-				  <img src="https://i.imgur.com/ruU04I6.jpg" alt='Hello Moni'>
-					<figcaption><%=result[i].productname%></figcaption>
-				    <span class="price">$<%=result[i].price%></span>
-			    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Buy Now</a> 
-				</figure>
-			</a>
-			<%}%>
-			
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<% include ../partials/sidebar %>	
+			</div>
+			<div class="col-md-9">				
+				<div id="wrap">
+					<div id="columns" class="columns_4">
+						<%for(var i=0;i<result.length;i++){%>
+						<a href="/index/productdetails/<%=result[i].id%>">
+							<figure>
+							  <img src="https://i.imgur.com/ruU04I6.jpg" alt='Hello Moni'>
+								<figcaption><%=result[i].productname%></figcaption>
+							    <span class="price">$<%=result[i].price%></span>
+						    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Buy Now</a> 
+							</figure>
+						</a>
+						<%}%>
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+
+
 	
 	<hr>
 	<footer class="bg-dark text-white">
