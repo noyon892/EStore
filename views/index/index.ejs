@@ -9,21 +9,40 @@
 	<header>
 		<% include ../partials/header %>
 	</header>
-	<div id="wrap">
-		<div id="columns" class="columns_4">
-			<%for(var i=0;i<result.length;i++){%>
-			<a href="/index/productdetails/<%=result[i].id%>">
-				<figure>
-				  <img src="https://i.imgur.com/ruU04I6.jpg" alt='Hello Moni'>
-					<figcaption><%=result[i].productname%></figcaption>
-				    <span class="price">$<%=result[i].price%></span>
-			    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Buy Now</a> 
-				</figure>
-			</a>
-			<%}%>
-			
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<% include ../partials/sidebar %>	
+			</div>
+			<div class="col-md-9">				
+				<div id="wrap">
+					<div id="columns" class="columns_4">
+						<%if(typeof result!=='undefined'){%>
+							<%for(var i=0;i<result.length;i++){%>
+							<a href="/index/productdetails/<%=result[i].id%>">
+								<figure>
+								  <img src="https://i.imgur.com/ruU04I6.jpg" alt='Hello Moni'>
+									<figcaption><%=result[i].productname%></figcaption>
+								    <span class="price">$<%=result[i].price%></span>
+							    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Buy Now</a> 
+								</figure>
+							</a>
+							<%}%>
+						<%}%>
+						<% if(typeof errorMessage !== 'undefined'){ %>
+	                		<div class="panel panel-warning">
+	                			<h1 class="text-center text-danger"><span class="glyphicon glyphicon-search text-center"></span><br><%= errorMessage.message %></h1>
+	                		</div>
+	                	<% } %>
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+
+
 	
 	<hr>
 	<footer class="bg-dark text-white">
