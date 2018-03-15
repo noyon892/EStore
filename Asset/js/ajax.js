@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	console.log("ready");
 
-//User validation
+//User validation for user
 	var usernameField = $("#username");
 	usernameField.on("change", function() {
 	var value = usernameField.val();
@@ -16,7 +16,7 @@ $(document).ready(function() {
 			}
 		})
 	});
-//Admin Username validation
+//Email validation for user
 	var emailField = $("#email");
 	emailField.on("change", function() {
 	var value = emailField.val();
@@ -63,4 +63,6 @@ $(document).ready(function() {
 			}
 		})
 	});
+//search for main index page
+
 });
