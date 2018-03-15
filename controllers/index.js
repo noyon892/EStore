@@ -1,6 +1,5 @@
 var express=require('express');
 var router=express.Router();
-var index=require.main.require('./models/index');
 var dashboardModel=require.main.require('./models/admindashboard-model');
 
 // Request Handler
@@ -24,7 +23,7 @@ router.all('/productdetails/:id?',function(req,res){
 	var data={
 		id: req.params.id
 	};
-	 index.productdetails(data,function(result){
+	 dashboardModel.productdetails(data,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			res.render('./index/productdetails',{result: result});
@@ -34,11 +33,6 @@ router.all('/productdetails/:id?',function(req,res){
 	 			res.render('./error/error');
 	 		}
 	 });
-});
-router.get('/:catagory?',function(req,res){
-	var data={
-		id: req.params.catagory	
-	};
 });
 router.post('/:catagory?',function(req,res){
 	var data={
