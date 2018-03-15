@@ -31,7 +31,7 @@ module.exports={
 		});
 	},
 	searchproduct: function(data,callback) {
-		var sql='SELECT * FROM product WHERE productname=?';
+		var sql="SELECT * FROM product WHERE productname LIKE ?";
 		var param=[data.productname];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
