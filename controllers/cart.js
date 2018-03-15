@@ -16,7 +16,7 @@ router.all('/addtocart/:id?',function(req,res){
 	 				productname: result[0].productname,
 	 				price: result[0].price,
 	 				catagory: result[0].catagory,
-	 				quantity: 2
+	 				quantity: req.body.quantity
 	 			};
 
 	 			var productcart=[];
@@ -39,7 +39,7 @@ router.all('/addtocart/:id?',function(req,res){
 	 		{
 	 			res.render('./error/error');
 	 		}
-	 		
+
 	 });
 });
 
