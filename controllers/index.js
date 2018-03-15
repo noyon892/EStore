@@ -37,9 +37,24 @@ router.all('/productdetails/:id?',function(req,res){
 
 router.post('/search',function(req,res){
 	var data={
-		catagory: req.body.search
+		productname: req.body.search
 	};
 	 index.searchproduct(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+});
+router.post('/catagoryearch',function(req,res){
+	var data={
+		catagory: req.body.value
+	};
+	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			res.render('./index/index',{result: result});
