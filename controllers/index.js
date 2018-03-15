@@ -46,7 +46,7 @@ router.post('/search',function(req,res){
 	 		}
 	 	else
 	 		{
-	 			res.render('./error/error');
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
 	 		}
 	 });
 });
