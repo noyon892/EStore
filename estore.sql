@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2018 at 07:56 AM
+-- Generation Time: Mar 13, 2018 at 05:47 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `estore`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `phone` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `gender` varchar(128) NOT NULL,
+  `dob` date NOT NULL,
+  `nid` varchar(256) NOT NULL,
+  `presentaddress` varchar(256) NOT NULL,
+  `parmanentaddress` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -45,14 +65,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `productname`, `price`, `quantity`, `catagory`, `image1`, `image2`, `image3`, `details`) VALUES
-(1, 'Sony HD 4K Smart LED TV', 35900, 1, 'Electronics', NULL, NULL, NULL, 'Sony Bravia HD Smart LED TV Model-2017'),
-(2, 'Sony HD 4K Smart LED TV', 35900, 1, 'Electronics', NULL, NULL, NULL, 'Sony Bravia HD Smart LED TV Model-2017'),
+(2, 'Sony HD 4K Smart LED TV', 350, 1, 'Electronics', NULL, NULL, NULL, ''),
 (3, 'Biskut', 12, 200, 'Food', NULL, NULL, NULL, 'Lohar Biskut'),
-(4, 'Pant', 2000, 2, 'Men Wear', NULL, NULL, NULL, 'Heavy metal'),
-(5, 'Pant', 2000, 2, 'Men Wear', NULL, NULL, NULL, 'Heavy metal'),
 (6, 'Amazfit Bip smart watch', 4800, 1, 'Electronics', NULL, NULL, NULL, 'Watch'),
 (7, 'Touhid', 10, 1, 'Men', NULL, NULL, NULL, 'lsiddlsfuklh'),
-(8, 'Shanto\'s Ball', 2, 2, 'Men', NULL, NULL, NULL, 'Nice Soft Black Punchable');
+(8, 'Shanto\'s Ball', 2, 2, 'Men', NULL, NULL, NULL, 'Nice Soft Black Punchable'),
+(9, 'Watch', 200, 12, 'Electronics', NULL, NULL, NULL, 'Abc');
 
 -- --------------------------------------------------------
 
@@ -86,6 +104,14 @@ INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `phone`, `add
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -104,10 +130,15 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --

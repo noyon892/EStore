@@ -9,7 +9,6 @@ regValidation=require.main.require('./Validation_rule/registration_validation');
 
 router.get('/',function(req,res){
 	res.render('./reg/reg');
-	
 });
 
 

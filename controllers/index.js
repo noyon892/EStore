@@ -34,6 +34,26 @@ router.all('/productdetails/:id?',function(req,res){
 	 		}
 	 });
 });
+router.get('/:catagory?',function(req,res){
+	var data={
+		id: req.params.catagory	
+	};
+});
+router.post('/:catagory?',function(req,res){
+	var data={
+		catagory: req.body.catagory
+	};
+	 dashboardModel.searchproduct(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result});
+	 		}
+	 	else
+	 		{
+	 			res.render('./error/error');
+	 		}
+	 });
+});
 
 //Exports
 module.exports=router;

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	console.log("ready");
 
-//User validation
+//User validation for user
 	var usernameField = $("#username");
 	usernameField.on("change", function() {
 	var value = usernameField.val();
@@ -16,7 +16,7 @@ $(document).ready(function() {
 			}
 		})
 	});
-//Email validation
+//Email validation for user
 	var emailField = $("#email");
 	emailField.on("change", function() {
 	var value = emailField.val();
@@ -32,6 +32,8 @@ $(document).ready(function() {
 			}
 		})
 	});
+
+//user validation for admin
 	var usernameField = $("#username");
 	usernameField.on("change", function() {
 	var value = usernameField.val();
@@ -46,7 +48,7 @@ $(document).ready(function() {
 			}
 		})
 	});
-//Email validation
+//Email validation for admin
 	var emailField = $("#email");
 	emailField.on("change", function() {
 	var value = emailField.val();
@@ -62,4 +64,6 @@ $(document).ready(function() {
 			}
 		})
 	});
+//search for main index page
+
 });
