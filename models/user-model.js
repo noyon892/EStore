@@ -1,6 +1,6 @@
 var db=require('./db');
 module.exports={
-	 user:function(data,callback)
+	user:function(data,callback)
 	{
 	var sql='select * from user where username=?';
 
@@ -43,7 +43,7 @@ module.exports={
 			}
 			else
 			{
-				callback(result);
+				callback(true);
 			}
 		});
 	}

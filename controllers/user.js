@@ -34,19 +34,34 @@ router.post('/useredit/:username?',function(req,res){
 		username: req.params.username,
 		name: req.body.name,
 		email: req.body.email,
-		password: req.body.password,
 		phone: req.body.phone,
 		address: req.body.address
 	};
 	userModel.userprofileupdate(data,function(valid){
 		if(valid)
 			{
-				res.render('./user/userprofile/');
+				res.redirect('/user/user');
 			}
 		else
 			{
-				res.render('/error/error');
+				res.redirect('/error');
 			}
+	});
+});
+
+router.all('/user',function(req,res){
+	var data={
+		username: req.session.loggedUser
+	}
+	userModel.user(data,function(result){
+		if(result)
+		{
+			res.render('./user/userprofile',{result: result});
+		}
+		else
+		{
+			res.redirect('/error');
+		}
 	});
 });
 module.exports=router;
