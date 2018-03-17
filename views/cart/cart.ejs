@@ -21,7 +21,7 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-<body>
+<body id="cartbody">
 
 	<header>
 		<% include ../partials/header %>
@@ -60,7 +60,23 @@ tr:nth-child(even) {
   
 </table> -->
 
-
+<div class="row cart-head">
+    <div class="container">
+    <div class="row">
+        <p></p>
+    </div>
+    <div class="row">
+        <div style="display: table; margin: auto;">
+            <span class="step step_complete"> <a href="#" class="check-bc">Cart</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
+            <span class="step_thankyou check-bc step_complete">Checkout</span>
+            <span class="step_thankyou check-bc step_complete">Thank you</span>
+        </div>
+    </div>
+    <div class="row">
+        <p></p>
+    </div>
+    </div>
+</div>   
 
 
   <h1>Shopping Cart</h1><hr>
