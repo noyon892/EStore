@@ -27,6 +27,8 @@ module.exports={
 			connection.query(sql,param,function(error,result){
 				if (error) {
 					callback(null);
+					
+					console.log(error);
 				}
 				else
 				{
@@ -38,7 +40,6 @@ module.exports={
 	},
 	getAllData: function(sql,callback){
 		
-		console.log(sql);
 		connection.query(sql,function(error,result){
 			if(error)
 			{

@@ -33,7 +33,6 @@ module.exports={
 	searchproduct: function(data,callback) {
 		var sql="SELECT * FROM product WHERE productname LIKE '" + data.productname + "%'";
 			db.getAllData(sql,function(result){
-			console.log(result);
 			if(result.length==0 || result==null)
 			{
 				callback(false);
