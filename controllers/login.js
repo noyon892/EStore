@@ -9,6 +9,7 @@ loginValidation=require.main.require('./Validation_rule/login_validation');
 router.get('/',function(req,res){
 	res.render('./login/index');
 });
+
 router.post('/',function(req,res){
 	var data={
 		username: req.body.username,
@@ -23,12 +24,12 @@ router.post('/',function(req,res){
 
 		else
 		{
-			loginModel.loginData(data,function(valid)
+			loginModel.loginData(data,function(result)
 			{
-				if(valid)
+				if(result)
 				{
 					req.session.loggedUser=data.username;
-					res.redirect('/index');
+					res.render('./user/userprofile',{result: result});
 				}
 				else
 				{
