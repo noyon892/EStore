@@ -85,6 +85,7 @@
 			<form method="post"  action="/cart/addtocart/<%=result[i].id%>">
 				
 				<div class="form-group">
+					<p><strong>Available Quantity: </strong><%=result[i].quantity%></p>
 				    <label for="quantity" class="col-sm-3 control-label font">
 				        Quantity: </label>
 				    <div class="col-sm-8 col-sm-offset-1">
@@ -95,7 +96,7 @@
 				    <!-- 		Control -->
 				    <div class="control">
 				    	<!-- Start Button buying -->
-				    	<button class="btndetails button" type="submit" id='addtocart'>
+				    	<button class="btndetails button" type="submit" id='addtocart' onclick="check()">
 				    		<!-- 		the Price -->
 				    		<span class="price">BDT <%=result[i].price%></span>
 				    		<!-- 		shopping cart icon-->
@@ -110,8 +111,14 @@
 		</div>
 				
 			<!-- 	End	Product details   -->
-				
-				
+			<script>
+			function click() {
+			    if(document.getElementById("quantity").value>result[0].quantity)
+			    {
+			    	window.alert('sdhsf');
+			    }
+			}
+			</script>
 				
 			<!-- 	Start product image & Information -->
 				
@@ -125,7 +132,6 @@
 					<ul>
 						<li><strong>Details: </strong><%=result[i].details%></li>
 						<li><strong>Catagory: </strong><%=result[i].catagory%></li>
-						<li><strong>Available Prouct: </strong><%=result[i].quantity%></li>
 					</ul>
 				</div>
 			</div>
@@ -141,5 +147,7 @@
 	<footer class="bg-dark text-white">
 	<% include ../partials/footer %>
 	</footer>
+
+	
   </body>
 </html>

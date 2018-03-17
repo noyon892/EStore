@@ -64,5 +64,13 @@ $(document).ready(function() {
 		})
 	});
 //search for main index page
-
+// var search = $("#search");
+// search.on("keyup", function() {
+// var productname = search.val();
+// 	$.post("/index/search", { productname }, function(data, xhr) {
+// 		document.getElementById('#searchresult').innerHtml='Hello World';
+// 		$('#mainresult').addClass("hidden");	
+// 		$('#searchresult').removeClass("hidden");	
+// 	})
+// });
 });

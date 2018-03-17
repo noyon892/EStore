@@ -4,6 +4,12 @@ var cart=require.main.require('./models/cart-model');
 
 // Request Handler
 
+
+
+router.get('/',function(req,res){
+	res.render('./cart/cart',{result: req.session.cart});
+});
+
 router.all('/addtocart/:id?',function(req,res){
 	var data={
 		id: req.params.id
@@ -77,11 +83,28 @@ router.get('/removecart/:id?',function(req,res){
 			}
 		req.session.cart=productcart;
 		}
-	res.redirect('/cart/showcart');
+	res.redirect('/cart');
 });
 
-router.get('/showcart',function(req,res){
-	res.render('./cart/cart',{result: req.session.cart});
+router.get('/editcart/:id?',function(req,res){
+	
+	var id= req.params.id;
+
+	var	productcart=[];
+		if(req.session.cart!=null){
+			productcart=req.session.cart;
+
+			for (var i =0; i < productcart.length; i++)
+			{
+				if (productcart[i].id === id)
+				{
+					productcart.splice(i,1);
+					break;
+				}
+			}
+		req.session.cart=productcart;
+		}
+	res.redirect('/checkout');
 });
 
 
