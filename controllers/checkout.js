@@ -84,11 +84,12 @@ router.post('/placeorder',function(req,res){
 							
 							if(valid)
 							{
-								res.render('./checkout/thanks');
+								req.session.cart=[];
+								res.render('./checkout/thanks');	
 							}
 							else
 							{
-								res.redirect('/error');
+								res.redirect('/cart');
 							}
 						});	
 					}
