@@ -10,6 +10,7 @@ var adminlogin=require('./controllers/adminlogin');
 var admindashboard=require('./controllers/admindashboard');
 var error=require('./controllers/error');
 var logout=require('./controllers/logout');
+var user = require('./controllers/user');
 var checkUser=require('./controllers/checkUser');
 var checkout=require('./controllers/checkout');
 var bodyParser=require('body-parser');
@@ -59,6 +60,7 @@ app.use('/error',error);
 app.use('/logout',logout);
 app.use('/checkUser',checkUser);
 app.use('/checkout',checkout);
+app.use('/user',user);
 //Server setup
 app.listen(port,function(){
 	console.log('Started port '+port);

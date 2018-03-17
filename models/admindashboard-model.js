@@ -111,9 +111,9 @@ module.exports={
 		});
 	},
 	searchuser: function(data,callback) {
-		var sql='SELECT * FROM user WHERE name=?';
-		var param=[data.username];
-			db.getData(sql,param,function(result){
+		var sql='SELECT * FROM user WHERE name LIKE "'+data.username+'%"';
+
+			db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{
 				callback(false);

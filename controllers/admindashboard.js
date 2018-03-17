@@ -164,7 +164,7 @@ router.post('/searchProduct',function(req,res){
 	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./admindashboard/userlist',{result: result});
+	 			res.render('./admindashboard/productlist',{result: result});
 	 		}
 	 	else 
 	 		{
