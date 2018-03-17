@@ -2,6 +2,7 @@ var express=require('express');
 var asyncValidator=require('async-validator');
 var router=express.Router();
 var dashboardModel=require.main.require('./models/admindashboard-model');
+var index=require.main.require('./models/index');
 productValidation=require.main.require('./Validation_rule/product_validation');
 registrationValidation=require.main.require('./Validation_rule/registration_validation');
 var date = require('date-and-time');
@@ -145,6 +146,22 @@ router.post('/search',function(req,res){
 		username: req.body.search
 	};
 	 dashboardModel.searchuser(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./admindashboard/userlist',{result: result});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./error/error');
+	 		}
+	 });
+});
+
+router.post('/searchProduct',function(req,res){
+	var data={
+		productname: req.body.search
+	};
+	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			res.render('./admindashboard/userlist',{result: result});
