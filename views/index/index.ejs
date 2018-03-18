@@ -24,12 +24,12 @@
 										<figure>
 										  <img src="https://i.imgur.com/ruU04I6.jpg" alt='Hello Moni'>
 											<figcaption><%=result[i].productname%></figcaption>
+											<p><%=result[i].catagory%></p>
 										    <span class="price">$<%=result[i].price%></span>
 									    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Buy Now</a> 
 										</figure>
 									</a>	
 								<%}%>
-							
 							<%}%>
 						<%}%>
 						<% if(typeof errorMessage !== 'undefined'){ %>
