@@ -9,6 +9,7 @@ router.post('/username',function(req,res){
 	checkmodel.getUser(data,function(valid)
 	{
 		res.send(valid);
+		return valid;
 	});
 });
 router.post('/email',function(req,res){
@@ -16,20 +17,23 @@ router.post('/email',function(req,res){
 	checkmodel.getUser(data,function(valid)
 	{
 		res.send(valid);
+		return valid;
 	});
 });
 router.post('/adminusername',function(req,res){
 	var data={ username: req.body.value };
-	checkmodel.getUser(data,function(valid)
+	checkmodel.getAdmin(data,function(valid)
 	{
 		res.send(valid);
+		return valid;
 	});
 });
 router.post('/adminemail',function(req,res){
 	var data={ email: req.body.value };
-	checkmodel.getUser(data,function(valid)
+	checkmodel.getAdmin(data,function(valid)
 	{
 		res.send(valid);
+		return valid;
 	});
 });
 

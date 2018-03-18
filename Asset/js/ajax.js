@@ -4,14 +4,15 @@ $(document).ready(function() {
 //User validation for user
 	var usernameField = $("#username");
 	usernameField.on("change", function() {
-	var value = usernameField.val();
-		$.post("/checkuser/username", { value }, function(data, xhr) {
+	var value = usernameField.val();	
+		$.post("/checkUser/username", { value }, function(data, xhr) {
+			console.log(data);
 			if(data) {
-				$("#submit").prop("disabled", true);
+				$(".submit").attr("disabled", true);
 				$('#useralart').removeClass("hidden");
 			}
 			else {
-				$("#submit").prop("disabled", false);
+				$(".submit").attr("disabled", false);
 				$('#useralart').addClass("hidden");
 			}
 		})
@@ -20,45 +21,44 @@ $(document).ready(function() {
 	var emailField = $("#email");
 	emailField.on("change", function() {
 	var value = emailField.val();
-		$.post("/checkuser/email", { value }, function(data, xhr) {
+		$.post("/checkUser/email", { value }, function(data, xhr) {
 			if(data) {
-				$("#submit").prop("disabled", true);
+				$(".submit").attr("disabled", true);
 				$('#emailalart').removeClass("hidden");
-				
 			}
 			else {
-				$("#submit").prop("disabled", false);
+				$(".submit").attr("disabled", false);
 				$('#emailalart').addClass("hidden");
 			}
 		})
 	});
 
-	var usernameField = $("#adminusername");
-	usernameField.on("change", function() {
-	var value = usernameField.val();
-		$.post("/checkuser/adminusername", { value }, function(data, xhr) {
+	var adminusernameField = $("#adminusername");
+	adminusernameField.on("change", function() {
+	var value = adminusernameField.val();
+		$.post("/checkUser/adminusername", { value }, function(data, xhr) {
 			if(data) {
-				$("#submit").prop("disabled", true);
+				$("#submit").attr("disabled", true);
 				$('#useralart').removeClass("hidden");
 			}
 			else {
-				$("#submit").prop("disabled", false);
+				$("#submit").attr("disabled", false);
 				$('#useralart').addClass("hidden");
 			}
 		})
 	});
 //Admin Email validation
-	var emailField = $("#adminemail");
-	emailField.on("change", function() {
-	var value = emailField.val();
-		$.post("/checkuser/adminemail", { value }, function(data, xhr) {
+	var adminemailField = $("#adminemail");
+	adminemailField.on("change", function() {
+	var value = adminemailField.val();
+		$.post("/checkUser/adminemail", { value }, function(data, xhr) {
 			if(data) {
-				$("#submit").prop("disabled", true);
+				$("#submit").attr("disabled", true);
 				$('#emailalart').removeClass("hidden");
 				
 			}
 			else {
-				$("#submit").prop("disabled", false);
+				$("#submit").attr("disabled", false);
 				$('#emailalart').addClass("hidden");
 			}
 		})
