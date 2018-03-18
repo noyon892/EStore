@@ -45,7 +45,7 @@ router.post('/',function(req,res){
 					}
 					else
 					{
-						res.redirect('./error/error');
+						res.redirect('/error');
 					}
 				});
 			}

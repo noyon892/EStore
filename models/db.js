@@ -27,6 +27,8 @@ module.exports={
 			connection.query(sql,param,function(error,result){
 				if (error) {
 					callback(null);
+					
+					console.log(error);
 				}
 				else
 				{
