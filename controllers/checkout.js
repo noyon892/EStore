@@ -70,8 +70,6 @@ router.post('/placeorder',function(req,res){
 				user.user(info,function(userid){
 					for(var i=0;i<req.session.cart.length;i++)
 					{
-						
-						
 						var data={
 							productid: productcart.sessioncart[i].id,
 							productname: req.body.productname[i],
@@ -85,10 +83,23 @@ router.post('/placeorder',function(req,res){
 						};
 						checkoutModel.placeorder(data,function(valid){
 							
+							console.log(data.quantity);
 							if(valid)
 							{
-								req.session.cart=[];
-								res.render('./checkout/thanks');	
+								var data1={
+									quantityorder: data.quantity,
+									productid: data.productid
+								};
+								checkoutModel.updatequantity(data1,function(valid1){
+									if(valid1){
+										req.session.cart=[];
+										res.render('./checkout/thanks');
+									}
+									else
+									{
+										res.redirect('/index');
+									}
+								});	
 							}
 							else
 							{
