@@ -1,15 +1,35 @@
+<html>
 <div class="mtt_catagory">
     <img src="https://s6.postimg.org/9m3yvl65p/catagory_icon.png" />
     Catagory
 </div>
-<form method="post" action="/index/catagorysearch">
 <div id="mainselection">
-  <select id="catagory" name="catagory">
-    <option selected="true" disabled="disabled">Select an Option</option>
-    <option value="Men">Men</option>
-    <option value="Women">Women</option>
-    <option value="Food">Food</option>
-    <option value="Electronics">Electronics</option>
-  </select>
+
+
+
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav my-nav">
+	        <li class="dropdown my-dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select Product <span class="caret text-right"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="/index/catagorysearch/Men">Men</a></li>
+	            <li><a href="/index/catagorysearch/Women">Women</a></li>
+	            <li><a href="/index/catagorysearch/Food">Food</a></li>
+	            <li><a href="/index/catagorysearch/Electronics">Electronics</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+
+
+
 </div>
-</form>
+</html>
