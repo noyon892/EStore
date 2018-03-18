@@ -65,9 +65,3 @@ app.use('/user',user);
 app.listen(port,function(){
 	console.log('Started port '+port);
 });
-
-
-
-
-
-
