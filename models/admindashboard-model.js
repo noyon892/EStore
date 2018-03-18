@@ -78,6 +78,21 @@ module.exports={
 			}
 		});
 	},
+	deliveryproduct: function(data,callback){
+		var sql="UPDATE soldproduct SET delivery='yes' WHERE id=?";
+		var param=[data.id];
+
+		db.updateData(sql,param,function(result){
+			if(result==null || result.length==0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+		});
+	},
 	productedit: function(data,callback)
 	{
 		var sql='SELECT * FROM product WHERE id=?';
@@ -98,6 +113,21 @@ module.exports={
 	userlist: function(callback)
 	{
 		var sql='SELECT id,name,email FROM user';
+
+		db.getAllData(sql,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);
+			}
+		});
+	},
+	soldpendings: function(callback)
+	{
+		var sql='SELECT * FROM soldproduct ORDER BY delivery';
 
 		db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)

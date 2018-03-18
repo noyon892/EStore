@@ -128,11 +128,38 @@ router.post('/productedit/:id?',function(req,res){
 			}
 	});
 });
+router.all('/deliveryproduct/:id?',function(req,res){
+	var data={
+		id: req.params.id,
+	};
+	dashboardModel.deliveryproduct(data,function(valid){
+		if(valid)
+			{
+				res.redirect('/admindashboard/soldpendings');
+			}
+		else
+			{
+				res.render('/error/error');
+			}
+	});
+});
 router.all('/userlist',function(req,res){
 	dashboardModel.userlist(function(result){
 		if(result && result!=null)
 			{
 				res.render('./admindashboard/userlist',{result: result});
+			}
+		else
+			{
+				res.render('./error/error');
+			}
+	});
+});
+router.all('/soldpendings',function(req,res){
+	dashboardModel.soldpendings(function(result){
+		if(result && result!=null)
+			{
+				res.render('./admindashboard/soldpendings',{result: result});
 			}
 		else
 			{
