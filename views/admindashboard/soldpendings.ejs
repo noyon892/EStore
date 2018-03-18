@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <% include ../partials/head %>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<header>
+    <% include ../partials/adminHeader %>
+</header>
+<div class="panel panel-primary">
+    <a href="/logout">
+      <button class="btn-success btn pull-right">
+        Logout
+      </button>
+    </a>
+  </div>
+<h2>Sold Pendings</h2>
+
+<table>
+  <tr>
+    <th>Product Id</th>
+    <th>User Id</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Address</th>
+    <th>Zip Code</th>
+    <th>Delivery Status</th>
+    <th>Order date</th>
+    <th>Option</th>
+  </tr>
+  <%for(var i=0;i<result.length;i++){%>
+  <tr>
+    <td><%=result[i].productid%></td>
+    <td><%=result[i].userid%></td>
+    <td><%=result[i].quantity%></td>
+    <td><%=result[i].price%></td>
+    <td><%=result[i].address%></td>
+    <td><%=result[i].zipcode%></td>
+    <td><%=result[i].delivery%></td>
+    <td><%=result[i].Orderdate%></td>
+    <td><a href="/admindashboard/deliveryproduct/<%=result[i].id%>">Delivery</a></td>
+  </tr>
+  <%}%>
+  
+</table>
+
+</body>
+</html>

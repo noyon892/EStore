@@ -542,7 +542,6 @@ background: #DFC2F2;
 }
 
 #mainselection {
-   overflow:hidden;
    width:307px;
    box-shadow: 1px 1px 11px #330033;
    border-radius: 0px 0px 3px 3px;
@@ -552,6 +551,9 @@ background: #DFC2F2;
   font-weight: bold;
 }
 
+.my-nav,.my-dropdown,.my-dropdown li{
+  width: 245px;
+}
 
 
 
@@ -873,6 +875,10 @@ hr{
         overflow-x: hidden;
     }
 }*/
+
+
+
+
 
 /*userprofile*/
 .user-row {

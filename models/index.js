@@ -44,7 +44,7 @@ module.exports={
 		});
 	},
 	searchproductcatagory: function(data,callback) {
-		var sql='SELECT * FROM product WHERE catagory=?';
+		var sql='SELECT * FROM `product` WHERE catagory LIKE ?';
 		var param=[data.catagory];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
@@ -56,5 +56,5 @@ module.exports={
 				callback(result);	
 			}
 		});
-	},
+	}
 };

@@ -51,10 +51,12 @@ router.post('/search',function(req,res){
 	 		}
 	 });
 });
-router.post('/catagoryearch',function(req,res){
+
+router.get('/catagorysearch/:catagory?',function(req,res){
 	var data={
-		catagory: req.body.value
+		catagory: req.params.catagory
 	};
+	console.log(req.params.catagoryname);
 	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
