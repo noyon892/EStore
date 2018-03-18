@@ -19,7 +19,7 @@
 					<div id="columns" class="columns_4">
 						<%if(typeof result!=='undefined'){%>
 							<%for(var i=0;i<result.length;i++){%>
-								<%if(result[i].quantity!=0){%>
+								<%if(result[i].quantity!=0 && result[i].quantity>0){%>
 									<a href="/index/productdetails/<%=result[i].id%>">
 										<figure>
 										  <img src="https://i.imgur.com/ruU04I6.jpg" alt='Hello Moni'>
