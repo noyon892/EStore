@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order</title>
+  <% include ../partials/head %>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<h2>Brought History</h2>
+
+<table>
+  <tr>
+    <th>Product name</th>
+    <th>Quantity</th>
+    <th>Address</th>
+    <th>Phone Number</th>
+    <th>Price</th>
+    <th>Delivery Status</th>
+    <th>Order date</th>
+  </tr>
+  <%for(var i=0;i<result.length;i++){%>
+  <tr>
+    <td><%=result[i].productname%></td>
+    <td><%=result[i].quantity%></td>
+    <td><%=result[i].address%></td>
+    <td><%=result[i].phonenumber%></td>
+    <td><%=result[i].price%></td>
+    <td><%=result[i].delivery%></td>
+    <td><%=result[i].Orderdate%></td>
+  </tr>
+  <%}%>
+  
+</table>
+
+</body>
+</html>

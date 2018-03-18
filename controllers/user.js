@@ -1,6 +1,7 @@
 var express=require('express');
 var router=express.Router();
 var userModel=require.main.require('./models/user-model');
+var index=require.main.require('./models/index');
 
 // Request Handler
 
@@ -48,7 +49,21 @@ router.post('/useredit/:username?',function(req,res){
 			}
 	});
 });
-
+router.get('/broughthistory/:id?',function(req,res){
+	var data={
+		id: req.params.id,
+	};
+	userModel.broughthistory(data,function(result){
+		if(result)
+			{
+				res.render('./user/broughthistory',{result:result});
+			}
+		else
+			{
+				res.render('/error/error');
+			}
+	});
+});
 router.all('/user',function(req,res){
 	var data={
 		username: req.session.loggedUser

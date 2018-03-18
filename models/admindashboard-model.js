@@ -127,7 +127,7 @@ module.exports={
 	},
 	soldpendings: function(callback)
 	{
-		var sql='SELECT * FROM soldproduct ORDER BY delivery';
+		var sql='SELECT * FROM soldproduct ORDER BY Orderdate DESC,delivery';
 
 		db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)

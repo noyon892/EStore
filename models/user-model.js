@@ -32,6 +32,21 @@ module.exports={
 			}
 		});
 	},
+		broughthistory:function(data,callback)
+	{
+		var sql="SELECT * FROM soldproduct WHERE userid=? ORDER BY Orderdate DESC,delivery";
+		var param = [data.id];
+		db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
 	userprofileupdate : function(data,callback){
 		var sql="UPDATE `user` SET `name`=?,`email`=?,`phone`=?,`address`=? WHERE `username`=?";
 		var param=[data.name,data.email,data.phone,data.address,data.username];

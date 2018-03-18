@@ -43,7 +43,10 @@ module.exports={
 		connection.query(sql,function(error,result){
 			if(error)
 			{
+				
+					console.log(error);
 				callback(null);
+
 			}
 			else
 			{
@@ -69,7 +72,7 @@ module.exports={
 		{
 			connection.query(sql,param,function(error,result){
 				if (error) {
-					callback(null);
+					callback(null);	
 				}
 				else
 				{
