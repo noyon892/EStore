@@ -72,15 +72,16 @@ router.post('/placeorder',function(req,res){
 					{
 						var data={
 							productid: productcart.sessioncart[i].id,
-							productname: req.body.productname[i],
+							productname: productcart.sessioncart[i].productname,
 							userid: userid[0].id,
 							username: req.body.first_name,
 							quantity: req.body.quantity[i],
-							price: req.body.price[i]*req.body.quantity[i],
+							price: productcart.sessioncart[i].price*req.body.quantity[i],
 							phonenumber: req.body.phone_number,
 							address: req.body.address,
 							zipcode: req.body.zip_code
 						};
+						console.log(data);
 						checkoutModel.placeorder(data,function(valid){
 							
 							console.log(data.quantity);

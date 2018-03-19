@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 
 module.exports={
 	insertData: function(sql,param,callback){
-
+		console.log(param);
 		if(param==null)
 		{
 			connection.query(sql,function(error,result){
@@ -27,8 +27,6 @@ module.exports={
 			connection.query(sql,param,function(error,result){
 				if (error) {
 					callback(null);
-					
-					console.log(error);
 				}
 				else
 				{
@@ -44,7 +42,6 @@ module.exports={
 			if(error)
 			{
 				
-					console.log(error);
 				callback(null);
 
 			}
